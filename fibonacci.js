@@ -23,4 +23,15 @@ function fibs(number) {
   return sequence;
 }
 
-console.log(fibs(8));
+function fibsRec(number) {
+  if (number === 0) {
+    return [];
+  } else if (number === 1) {
+    return [0];
+  } else if (number === 2) {
+    return [0, 1];
+  } else {
+    const previous = fibsRec(number - 1);
+    return previous.concat(previous[number - 2] + previous[number - 3]);
+  }
+}
